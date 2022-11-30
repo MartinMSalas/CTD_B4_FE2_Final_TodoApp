@@ -108,17 +108,10 @@ window.addEventListener("load", function () {
           element.innerHTML += `<span color=red>${errores[key]}</span> `
           console.log(errores[key]);
           */
-          // Create a "li" element:
           let padre = document.querySelector("form");
-          
-          /*
-          
-          */
           const newNode = document.createElement("div");
-          newNode.innerHTML = `<span color=red>${errores[key]}</span> `;
-          
+          newNode.innerHTML = `<p id="error${key}" style="color: red">${errores[key]}</p> `;
           padre.insertBefore(newNode,element);
-
         }
       })
       
