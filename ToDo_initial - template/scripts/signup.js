@@ -32,7 +32,7 @@ window.addEventListener("load", function () {
       
       let nameCheck = /^[a-z]{3,20}\D*$/i;
       //||^[a-z][a-z]\D*$/i; // Change this line
-      return nameCheck.test(nombre.value);
+      return nameCheck.test(nombre.value.trim());
 
       
       
@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
     function validarApellido(){
       let nameCheck = /^[a-z]{3,20}\D*$/i;
       //||^[a-z][a-z]\D*$/i; // Change this line
-      return nameCheck.test(apellido.value);
+      return nameCheck.test(apellido.value.trim());
  
     }
     function validarEmail() {
@@ -52,9 +52,9 @@ window.addEventListener("load", function () {
       // }
     
       // EJEMPLO CON EXPRESION REGULAR 👇
-      let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
+      let regex = new RegExp("^[a-z0-9]+@[a-z]+.[a-z]{2,3}");
     
-      if (regex.test(email)) {
+      if (regex.test(email.value.trim())) {
         resultado = true;
       }
     
@@ -62,40 +62,53 @@ window.addEventListener("load", function () {
     }
     
     function validarPassword() {
-      let resultado = false;
-    
-      // si pasa las pruebas lo damos por válido 👇
-      if (password.value.length > 5 && !password.value.includes(" ") && password.value === passwordRepetida.value) {
-        resultado = true;
-      }
       
-      return resultado;
+      
+      return password.value.trim().length >= 6 && !password.value.trim().includes(" ")
+    }
+    function validarPasswordRepetida() {
+      return  password.value.trim() === passwordRepetida.value.trim();
     }
     
 
     //aca lo valido!!
     function validacion(){
       console.log("soy la validacion")
-      console.log(validarEmail());
       console.log(validarNombre());
+      console.log(validarApellido());
+      console.log(validarEmail());
       console.log(validarPassword());
-      let errores = ["","","",""]
+      console.log(validarPasswordRepetida());
+      
+      let errores = {
+        inputNombre : "",
+        inputApellido : "",
+        inputEmail : "",
+        inputPassword : "",
+        inputPasswordRepetida : "",
+      }
       if (!validarNombre())
-        errores[0] = "Por favor chequear el nombre";      
+        errores.inputNombre = "Por favor chequear el nombre";      
       if (!validarApellido())
-        errores[1] = "Por favor chequear el apellido";      
+        errores.inputApellido = "Por favor chequear el apellido";      
       if (!validarEmail())
-        errores[2] = "Por favor chequear mail ingresado";
+        errores.inputEmail = "Por favor chequear mail ingresado";
       if (!validarPassword())
-        errores[3] = "Por favor chequear los pass ingresados";
-      console.log(errores);
-      errores.map (error => {
+        errores.inputPassword = "Por favor chequear los pass ingresados";
+      if (!validarPasswordRepetida())
+        errores.inputPasswordRepetida = "Las pass son diferentes";
+      //console.log(errores);
+      // aca tengo q colocar texto de error en cada error no funciona todavia pero casi casi
+      Object.keys(errores).forEach(key =>{
         
-        if (error.length){
-
-          console.log(error);
+        if(errores[key]!=""){
+          let element = document.querySelector(`#${key}`);
+          element.innerHTML += `<label color=red>${errores[key]}</label> `
+          console.log(errores[key]);
         }
       })
+      
+      
       if (validarNombre() && validarEmail() && validarPassword()){
         return true;
       }
@@ -103,9 +116,7 @@ window.addEventListener("load", function () {
       return false
       
     }
-     /*
-     tengo q crear un objeto tipo key son los id y value los errores y recorrerlo con un for each key value 
-     */
+ 
     
     // con el formulario validado
   
