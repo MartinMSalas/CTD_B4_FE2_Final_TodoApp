@@ -103,8 +103,22 @@ window.addEventListener("load", function () {
         
         if(errores[key]!=""){
           let element = document.querySelector(`#${key}`);
-          element.innerHTML += `<label color=red>${errores[key]}</label> `
+          /*
+          
+          element.innerHTML += `<span color=red>${errores[key]}</span> `
           console.log(errores[key]);
+          */
+          // Create a "li" element:
+          let padre = document.querySelector("form");
+          
+          /*
+          
+          */
+          const newNode = document.createElement("div");
+          newNode.innerHTML = `<span color=red>${errores[key]}</span> `;
+          
+          padre.insertBefore(newNode,element);
+
         }
       })
       
