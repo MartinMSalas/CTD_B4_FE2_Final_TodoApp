@@ -27,15 +27,21 @@ window.addEventListener("load", function () {
     // Validacion formulario
     
     
-    console.log(frase.match())
+   
     function validarNombre(){
       
       let nameCheck = /^[a-z]{3,20}\D*$/i;
       //||^[a-z][a-z]\D*$/i; // Change this line
-      return nameCheck.test(name.value);
+      return nameCheck.test(nombre.value);
 
       
       
+    }
+    function validarApellido(){
+      let nameCheck = /^[a-z]{3,20}\D*$/i;
+      //||^[a-z][a-z]\D*$/i; // Change this line
+      return nameCheck.test(apellido.value);
+ 
     }
     function validarEmail() {
       let resultado = false;
@@ -73,6 +79,28 @@ window.addEventListener("load", function () {
       console.log(validarEmail());
       console.log(validarNombre());
       console.log(validarPassword());
+      let errores = {
+        nombre : "",
+        apellido: "",
+        email: "",
+        password: "",
+      }
+      if (!validarNombre())
+        errores.nombre = "Por favor chequear el nombre";
+      
+      if (!validarApellido())
+        errores.apellido = "Por favor chequear el apellido";
+      
+      if (!validarEmail())
+        errores.email = "Por favor chequear mail ingresado";
+      if (!validarPassword())
+        errores.password = "Por favor chequear los pass ingresados";
+
+      errores.map (error => {
+        if (!error.length){
+          
+        }
+      })
       if (validarNombre() && validarEmail() && validarPassword()){
         return true;
       }
