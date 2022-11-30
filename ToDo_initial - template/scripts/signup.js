@@ -65,7 +65,7 @@ window.addEventListener("load", function () {
       let resultado = false;
     
       // si pasa las pruebas lo damos por válido 👇
-      if (password.length > 5 && !password.includes(" ") && password.value === passwordRepetida.value) {
+      if (password.value.length > 5 && !password.value.includes(" ") && password.value === passwordRepetida.value) {
         resultado = true;
       }
       
@@ -79,26 +79,21 @@ window.addEventListener("load", function () {
       console.log(validarEmail());
       console.log(validarNombre());
       console.log(validarPassword());
-      let errores = {
-        nombre : "",
-        apellido: "",
-        email: "",
-        password: "",
-      }
+      let errores = ["","","",""]
       if (!validarNombre())
-        errores.nombre = "Por favor chequear el nombre";
-      
+        errores[0] = "Por favor chequear el nombre";      
       if (!validarApellido())
-        errores.apellido = "Por favor chequear el apellido";
-      
+        errores[1] = "Por favor chequear el apellido";      
       if (!validarEmail())
-        errores.email = "Por favor chequear mail ingresado";
+        errores[2] = "Por favor chequear mail ingresado";
       if (!validarPassword())
-        errores.password = "Por favor chequear los pass ingresados";
-
+        errores[3] = "Por favor chequear los pass ingresados";
+      console.log(errores);
       errores.map (error => {
-        if (!error.length){
-          
+        
+        if (error.length){
+
+          console.log(error);
         }
       })
       if (validarNombre() && validarEmail() && validarPassword()){
@@ -108,7 +103,9 @@ window.addEventListener("load", function () {
       return false
       
     }
-     
+     /*
+     tengo q crear un objeto tipo key son los id y value los errores y recorrerlo con un for each key value 
+     */
     
     // con el formulario validado
   
