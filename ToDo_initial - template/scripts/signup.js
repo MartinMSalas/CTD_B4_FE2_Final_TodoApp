@@ -17,17 +17,24 @@ window.addEventListener("load", function () {
     event.preventDefault();
 
     // creamos el cuerpo de la request
-
+    
     const payload = {
-        "firstName": nombre.value,
-        "lastName": apellido.value,
-        "email": email.value,
-        "password": password.value
+      "firstName": nombre.value,
+      "lastName": apellido.value,
+      "email": email.value,
+      "password": password.value
     };
     // Validacion formulario
-
+    
+    
+    console.log(frase.match())
     function validarNombre(){
-      return (isNaN(nombre.value) && nombre.value.length >3)
+      
+      let nameCheck = /^[a-z]{3,20}\D*$/i;
+      //||^[a-z][a-z]\D*$/i; // Change this line
+      return nameCheck.test(name.value);
+
+      
       
     }
     function validarEmail() {
