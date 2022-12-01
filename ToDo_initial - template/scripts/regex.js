@@ -37,3 +37,43 @@ let result2 = userCheck.test(username);
 
 console.log(result2);
 console.log(username.match(userCheck));
+let validacionObjeto = {
+  inputNombre : ()=>{
+    return (/^[a-z]{3,20}\D*$/i.test(nombre.value.trim()));
+  },
+  inputApellido :  ()=>{
+    return /^[a-z]{3,20}\D*$/i.test(apellido.value.trim());
+  },
+  inputEmail : ()=>{
+    return  /^[a-z0-9]+@[a-z]+.[a-z]{2,3}/.test(email.value.trim());
+  },
+  inputPassword : ()=>{
+    return password.value.trim().length >= 6 && !password.value.trim().includes(" ");
+  },
+  inputPasswordRepetida : ()=>{
+    return password.value.trim() === passwordRepetida.value.trim();
+  },
+};
+Object.keys(validacionObjeto).forEach(key =>{
+  console.log("Chequeando validacion")  
+  let element = document.querySelector(`#error${key}`);
+  
+  if(validacionObjeto[key]()){
+    console.log(`para la key ${key} el resultado de la comprobacion fue verdadero`)
+    element.style.display="none";
+    /*
+    
+    element.innerHTML += `<span color=red>${errores[key]}</span> `
+    console.log(errores[key]);
+    -----
+    let padre = document.querySelector("form");
+    const newNode = document.createElement("div");
+    newNode.innerHTML = `<p id="error${key}" style="color: red; display : none">${errores[key]}</p> `;
+    padre.insertBefore(newNode,element);
+    */
+  }else{
+    console.log(`para la key ${key} el resultado de la comprobacion fue falso`)
+    resultado = false;
+    element.style.display ="flex";
+  }
+})
