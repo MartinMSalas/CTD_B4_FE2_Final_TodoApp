@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo App</title>
     <link rel="icon" type="image/x-icon" href="./assets/DH_Logo_Black.png" />
+    <script src="https://kit.fontawesome.com/9de0626d33.js" crossorigin="anonymous"></script>
     <meta
       name="description"
       content="Digital House CTD | Proyecto integrador | FRONTEND II"
@@ -15,8 +16,8 @@
     <link rel="stylesheet" href="./css/loginSignupStyles.css" />
 
     <!-- ---------------------- logica aplicada en register -------------------- -->
-    <script src="./scripts/utils.js"></script>
-    <script src="./scripts/signup.js"></script>
+    <script src="./scripts/utils.js" type="module"></script>
+    <script src="./scripts/signup.js" type="module"></script>
   </head>
 
   <body>
@@ -33,20 +34,25 @@
           <h2>To-Do App</h2>
           <p class="rounded">Register</p>
         </div>
-
-        <label>Nombre</label>
+        <span class="label">
+          <label>Nombre</label>
+        </span>
         <input id="inputNombre" type="text" />
-
-        <label>Apellido</label>
+        <span class="label">
+          <label>Apellido</label><i class="fa-solid fa-check fa-beat" style="--fa-beat-scale: 2.0; --fa-animation-iteration-count:1;"></i>
+        </span>
         <input id="inputApellido" type="text" />
-
-        <label>Email</label>
+        <span class="label">
+          <label>Email</label>
+        </span>
         <input id="inputEmail" type="text" />
-
-        <label>Contraseña</label>
+        <span class="label">
+          <label>Contraseña</label>
+        </span>
         <input id="inputPassword" type="password" />
-
-        <label>Repetir contraseña</label>
+        <span class="label">
+          <label>Repetir contraseña</label>
+        </span>
         <input id="inputPasswordRepetida" type="password" />
 
         <button type="submit">Crear Cuenta</button>

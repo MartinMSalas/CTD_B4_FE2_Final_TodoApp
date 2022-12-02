@@ -1,20 +1,29 @@
 /* ---------------------------------- texto --------------------------------- */
-function validarTexto(texto) {}
+export function validarTexto(texto) {
+  return (/^[a-z]{3,20}\D*$/i.test(texto.trim()));
+}
 
 function normalizarTexto(texto) {}
 
 /* ---------------------------------- email --------------------------------- */
-function validarEmail(email) {}
+export function validarEmail(email) {
+  return /^[a-z0-9]+@[a-z]+.[a-z]{2,3}/.test(email.trim());
+}
 
 function normalizarEmail(email) {}
 
 /* -------------------------------- password -------------------------------- */
-function validarPassword(contrasenia) {}
+export function validarPassword(password){
+  return password.trim().length >= 6 && !password.trim().includes(" ");
+
+}
 
 /* -------------------------------- password -------------------------------- */
-function compararPassword(contrasenia_1, contrasenia_2) {}
+export function compararPassword(password, password2) {
+  return password.trim() === password2.trim();
+}
 
-export {validarTexto, validarEmail,validarPassword, compararPassword}
+
 /*
 
 let resultado = false;

@@ -1,4 +1,4 @@
-import {validarTexto,validarEmail,validarPassword,compararPassword} from './utils.js';
+import {validarTexto,validarEmail,validarPassword,compararPassword} from './utils.js'
 window.addEventListener("load", function () {
   /* ---------------------- obtenemos variables globales ---------------------- */
   const form = document.forms[0];
@@ -89,7 +89,7 @@ window.addEventListener("load", function () {
       }else{
         document.querySelector("#errorinputPassword").style.display ="none";
       }
-      if(!compararPassword(passwordRepetida.value)){
+      if(!compararPassword(password.value,passwordRepetida.value)){
         resultado=false;
         document.querySelector("#errorinputPasswordRepetida").style.display ="flex";
       }else{
