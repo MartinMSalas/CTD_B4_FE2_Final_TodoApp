@@ -74,10 +74,13 @@ window.addEventListener("load", function () {
       if (!validarTexto(apellido.value)){
         resultado=false;
         document.querySelector("#errorInputApellido").style.display ="flex";
-        document.querySelector("#inputApellidoCheck").style.display ="none";
+        document.querySelector("#inputApellidoCheck").classList.remove("checkVisible", "fa-beat");
+        document.querySelector("#inputApellidoCheck").classList.add("checkInvisible", "fa-fade");
       }else{
         document.querySelector("#errorInputApellido").style.display ="none";
-        document.querySelector("#inputApellidoCheck").style.display ="inline-block";
+        document.querySelector("#inputApellidoCheck").classList.remove("checkInvisible" ,"fa-fade");
+        document.querySelector("#inputApellidoCheck").classList.add("checkVisible" ,"fa-beat");
+        
         
       }
       if(!validarEmail(email.value)){

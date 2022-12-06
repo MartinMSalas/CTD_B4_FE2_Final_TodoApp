@@ -104,3 +104,18 @@ form button:hover{
 .ingresarA a:hover{
     color: var(--azul);
 }
+.checkVisible {
+  --fa-beat-scale: 2.0;
+  --fa-animation-iteration-count:1;
+  display:inline-block;
+  color:green;
+}
+.checkInvisible{
+ 
+  --fa-animation-iteration-count:1;
+  
+  --fa-beat-fade-opacity: 1.0; 
+  --fa-beat-fade-scale: 2;
+  
+  color:green;
+}
