@@ -34,25 +34,40 @@
           <h2>To-Do App</h2>
           <p class="rounded">Register</p>
         </div>
+
         <span class="label">
           <label>Nombre</label>
         </span>
+        <p id="errorInputNombre" style="color: red; display : none">Por favor chequear el nombre ingresado</p>
         <input id="inputNombre" type="text" />
-        <span class="label">
-          <label>Apellido</label><i class="fa-solid fa-check fa-beat" style="--fa-beat-scale: 2.0; --fa-animation-iteration-count:1;"></i>
-        </span>
-        <input id="inputApellido" type="text" />
+        
+        
+        
+        <div>
+          
+          <span class="label" style="display:flex; justify-content:space-between">
+          <label >Apellido</label>
+          <i class="fa-solid fa-check fa-beat"  id="inputApellidoCheck" style="--fa-beat-scale: 2.0; --fa-animation-iteration-count:1; display:none; color:green "></i>
+          </span>
+          <p id="errorInputApellido" style="color: red; display : none">Por favor chequear el apellido ingresado</p>
+          <input id="inputApellido" type="text" />
+        </div>
+        
+        
         <span class="label">
           <label>Email</label>
         </span>
+        <p id="errorInputEmail" style="color: red; display : none">Por favor chequear mail ingresad</p>
         <input id="inputEmail" type="text" />
         <span class="label">
           <label>Contraseña</label>
         </span>
+        <p id="errorInputPassword" style="color: red; display : none">Por favor chequear el PassWord ingresado</p>
         <input id="inputPassword" type="password" />
         <span class="label">
           <label>Repetir contraseña</label>
         </span>
+        <p id="errorInputPasswordRepetida" style="color: red; display : none">Las PassWords son Diferentes</p>
         <input id="inputPasswordRepetida" type="password" />
 
         <button type="submit">Crear Cuenta</button>

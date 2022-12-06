@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
   
   const url = "http://todo-api.ctd.academy:3000/v1";
   // Cargar el objeto errores y recorrerlos para crear los div q los contengan estos estaran ocultos
-  function cargarMensajesErrorOcultos() {
+  /*function cargarMensajesErrorOcultos() {
 
     let errores = {
       inputNombre : "Por favor chequear el nombre",
@@ -27,8 +27,8 @@ window.addEventListener("load", function () {
         newNode.innerHTML = `<p id="error${key}" style="color: red; display : none">${errores[key]}</p> `;
         padre.insertBefore(newNode,element);
     })
-  }
-  cargarMensajesErrorOcultos();
+  }*/
+  //cargarMensajesErrorOcultos();
   /* -------------------------------------------------------------------------- */
   /*            FUNCIÓN 1: Escuchamos el submit y preparamos el envío           */
   /* -------------------------------------------------------------------------- */
@@ -67,33 +67,36 @@ window.addEventListener("load", function () {
       let resultado = false;
       if (!validarTexto(nombre.value)){
         resultado=false;
-        document.querySelector("#errorinputNombre").style.display ="flex";
+        document.querySelector("#errorInputNombre").style.display ="flex";
       }else{
-        document.querySelector("#errorinputNombre").style.display ="none";
+        document.querySelector("#errorInputNombre").style.display ="none";
       }
       if (!validarTexto(apellido.value)){
         resultado=false;
-        document.querySelector("#errorinputApellido").style.display ="flex";
+        document.querySelector("#errorInputApellido").style.display ="flex";
+        document.querySelector("#inputApellidoCheck").style.display ="none";
       }else{
-        document.querySelector("#errorinputApellido").style.display ="none";
+        document.querySelector("#errorInputApellido").style.display ="none";
+        document.querySelector("#inputApellidoCheck").style.display ="inline-block";
+        
       }
       if(!validarEmail(email.value)){
         resultado=false;
-        document.querySelector("#errorinputEmail").style.display ="flex";
+        document.querySelector("#errorInputEmail").style.display ="flex";
       }else{
-        document.querySelector("#errorinputEmail").style.display ="none";
+        document.querySelector("#errorInputEmail").style.display ="none";
       }
       if(!validarPassword(password.value)){
         resultado=false;
-        document.querySelector("#errorinputPassword").style.display ="flex";
+        document.querySelector("#errorInputPassword").style.display ="flex";
       }else{
-        document.querySelector("#errorinputPassword").style.display ="none";
+        document.querySelector("#errorInputPassword").style.display ="none";
       }
       if(!compararPassword(password.value,passwordRepetida.value)){
         resultado=false;
-        document.querySelector("#errorinputPasswordRepetida").style.display ="flex";
+        document.querySelector("#errorInputPasswordRepetida").style.display ="flex";
       }else{
-        document.querySelector("#errorinputPasswordRepetida").style.display ="none";
+        document.querySelector("#errorInputPasswordRepetida").style.display ="none";
       }
       return resultado;
     }
